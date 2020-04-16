@@ -25,7 +25,9 @@ If your system is left in a broken state you need to crash but if there is no im
 It is common to use errors when you want the system to crash.
 It is common to use logs when you want to know that something is wrong but you don't want to crash.
 
-### Local error handling
+### Who should handle the error?
+
+#### Local error handling
 
 Local error handling means that you deal with the error where it occurs.
 Local error handling is usually done like this:
@@ -34,20 +36,22 @@ Local error handling is usually done like this:
 2. Evaluate if error recovery can happen
 3. Log out message that the error occur and/or re-throw the error
 
-### Global error handling
+#### Global error handling
 
 Global error handling means that we allow the error to "bubble up to the surface".
 With global error handling we only throw errors and use a global error handler to catch the error.
 
 This is different from local error handling where we try to handle the error where it occurs.
 
-### Error subtypes
+#### Error subtypes
 
 We need to think about consistency when designing our error handling.
 Different types of errors are often returned with different status codes and messages.
 When third parties depend on our API their system may expect that we use consistent errors.
 
-### Error return value vs throw
+### How to communicate the error to the caller?
+
+#### Error return value vs throw
 
 A common strategy for dealing with errors is to throw an error or return a "error value".
 Some claim that you should never return a error value and always throw.
@@ -55,4 +59,4 @@ Some claim that you should always return a error value to avoid crashing the sys
 
 I claim that it depends.
 
-### Empty return value vs null
+#### Empty return value vs null
