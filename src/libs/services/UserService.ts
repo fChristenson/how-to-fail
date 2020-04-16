@@ -6,7 +6,7 @@ export interface IUser {
   address: string;
 }
 
-const User = (name, address): IUser => {
+export const User = (name, address): IUser => {
   return {
     id: Math.random().toString(),
     name,

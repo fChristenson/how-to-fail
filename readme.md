@@ -56,5 +56,3 @@ Some claim that you should always return a error value to avoid crashing the sys
 I claim that it depends.
 
 ### Empty return value vs null
-
-### Either monad
