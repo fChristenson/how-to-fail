@@ -15,7 +15,15 @@
 
 ### Crash vs recover
 
+One of the most important question to answer before you decide to crash or recover is:
+"What will the impact be if I continue now?"
+
+If your system is left in a broken state you need to crash but if there is no impact that can't be solved easily then recovering may be the best option.
+
 ### Logs vs errors
+
+It is common to use errors when you want the system to crash.
+It is common to use logs when you want to know that something is wrong but you don't want to crash.
 
 ### Local error handling
 
@@ -40,6 +48,12 @@ Different types of errors are often returned with different status codes and mes
 When third parties depend on our API their system may expect that we use consistent errors.
 
 ### Error return value vs throw
+
+A common strategy for dealing with errors is to throw an error or return a "error value".
+Some claim that you should never return a error value and always throw.
+Some claim that you should always return a error value to avoid crashing the system.
+
+I claim that it depends.
 
 ### Empty return value vs null
 

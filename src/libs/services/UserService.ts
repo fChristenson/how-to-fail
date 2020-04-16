@@ -1,18 +1,24 @@
 import { UserNotFoundError } from "../errors/UserNotFoundError";
 
-interface IUser {
+export interface IUser {
   id: string;
   name: string;
+  address: string;
 }
 
-const User = (name): IUser => {
+const User = (name, address): IUser => {
   return {
     id: Math.random().toString(),
     name,
+    address,
   };
 };
 
-const userDb: IUser[] = [User("foo"), User("bar"), User("baz")];
+export const userDb: IUser[] = [
+  User("foo", "some street"),
+  User("bar", "some street"),
+  User("baz", "some street"),
+];
 
 export class UserService {
   getUser(id: string) {
