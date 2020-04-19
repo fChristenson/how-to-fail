@@ -13,6 +13,10 @@
 
 ## Notes
 
+Question:
+
+> (Related to this, could you do an episode on proper error handling? Would appreciate it; I read a lot about this right now and there are many different opinions from senior people. Some say throw, some say never throw. Some say use Either monads. Some say always return undefined or null. Some say do all of these depending on context. Etc... I would love some rules and best practices. 🙃)
+
 ### Crash vs recover
 
 One of the most important question to answer before you decide to crash or recover is:
@@ -67,10 +71,9 @@ In languages such as Java this is a big problem because the type system does not
 This means that every object could be `null`.
 
 This is what empty return values where created for.
-The idea is simple, if something goes wrong return a value that represents that the operation failed.
-This allows the caller to either check for the error or continue if it is safe.
+The idea is simple, if something goes wrong return a value that allows the caller to continue as if nothing is wrong.
 
-Empty return values are perfect for when it doesn't matter if the previous operation failed. It is fine to continue with "empty" values.
+Empty return values are perfect for when it doesn't matter if the previous operation failed. It is fine to continue with a "empty" value.
 
 The problem with empty values is that they force the caller to do the same check as with `null` but also invite more risk.
 The caller may forget that a function can return an empty value and continue processing the result when it will cause problems.
