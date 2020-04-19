@@ -60,3 +60,18 @@ Some claim that you should always return a error value to avoid crashing the sys
 I claim that it depends.
 
 #### Empty return value vs null
+
+There is an idea that returning `null` is bad.
+The reasons is simple, how do I know if the value is `null` or not?
+In languages such as Java this is a big problem because the type system does not have a explicit type for `null | Object` such as in Typescript.
+This means that every object could be `null`.
+
+This is what empty return values where created for.
+The idea is simple, if something goes wrong return a value that represents that the operation failed.
+This allows the caller to either check for the error or continue if it is safe.
+
+Empty return values are perfect for when it doesn't matter if the previous operation failed. It is fine to continue with "empty" values.
+
+The problem with empty values is that they force the caller to do the same check as with `null` but also invite more risk.
+The caller may forget that a function can return an empty value and continue processing the result when it will cause problems.
+Had the value been `null` the program would have failed and that is sometimes better.
